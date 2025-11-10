@@ -71,11 +71,11 @@ export default function AboutPage() {
           <div className="absolute -inset-4 -z-10 rounded-[28px] bg-[radial-gradient(400px_200px_at_70%_10%,rgba(216,179,106,0.25),transparent_70%)]" />
           <div className="rounded-[20px] border border-white/10 bg-white/5 p-2 backdrop-blur-sm shadow-[0_15px_60px_rgba(0,0,0,0.35)]">
             <Image
-              src="/nikolas-portrait.jpg" // tedd a képet a /public mappába ezen a néven
+              src="/nikolas-portrait.jpeg" // tedd a képet a /public mappába ezen a néven
               width={450}
               height={580}
               priority
-              alt="Nikolas portré – elegáns, sötét garbóban, nyugodt erő"
+              alt="Nikolas portréja"
               className="rounded-[16px] object-cover"
             />
           </div>
@@ -126,7 +126,7 @@ export default function AboutPage() {
           <div className="mt-5 rounded-xl border border-white/10 bg-[#2A1F2C]/70 p-4">
             <p className="text-white/80 text-sm">
               Kulcsszavak: <strong>bizalom</strong>, <strong>béke</strong>,{" "}
-              <strong>mélység</strong>, <strong>erő</strong>,{" "}
+              <strong>mélység</strong>, <strong>spiritualitás</strong>,{" "}
               <strong>elegancia</strong>.
             </p>
           </div>
