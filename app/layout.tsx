@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
-import Footer from "@/components/SiteFooter";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "LightMind",
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Footer – szintén lilás átmenet */}
         <footer className="bg-gradient-to-b from-[#1B1520] via-[#241B27] to-[#2A1F2C] border-t border-white/10">
-          <SiteFooter />
+          <Footer />
         </footer>
       </body>
     </html>
