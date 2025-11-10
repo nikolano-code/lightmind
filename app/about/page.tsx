@@ -20,16 +20,16 @@ export default function AboutPage() {
           </span>
 
           <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
-            <span className="text-[#D8B36A]">LightMind</span> – ahol a lélek
+            <span className="text-[#D8B36A]">LightMind</span> ahol a lélek
             lélegezni kezd
           </h1>
 
           <p className="text-white/80 leading-relaxed">
-            Mindig is érdekelt, hogyan működik az ember – mi rejlik a szavak
+            Mindig is érdekelt, hogyan működik az ember mi rejlik a szavak
             mögött, és mi történik az energiáink szintjén. Az évek során
             megtanultam, hogy a valódi harmónia belül születik, amikor az elme,
             a test és a lélek újra összhangba kerül. A{" "}
-            <strong>LightMind</strong> ebből az útból nőtt ki: finomhangolt
+            <strong>LightMind</strong> ebből az útból nőtt ki finomhangolt
             figyelem, valódi jelenlét és gyakorlati útmutatás egy elegáns,
             nyugodt térben.
           </p>
@@ -66,26 +66,25 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Portré kártya */}
-        <div className="relative">
-          <div className="absolute -inset-6 -z-10 rounded-[28px] bg-[radial-gradient(600px_240px_at_70%_10%,rgba(216,179,106,0.25),transparent_70%)]" />
-          <div className="rounded-[24px] border border-white/10 bg-white/5 p-2 backdrop-blur-sm shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+        {/* Portré – kisebb verzió */}
+        <div className="relative max-w-sm mx-auto md:mx-0">
+          <div className="absolute -inset-4 -z-10 rounded-[28px] bg-[radial-gradient(400px_200px_at_70%_10%,rgba(216,179,106,0.25),transparent_70%)]" />
+          <div className="rounded-[20px] border border-white/10 bg-white/5 p-2 backdrop-blur-sm shadow-[0_15px_60px_rgba(0,0,0,0.35)]">
             <Image
               src="/nikolas-portrait.jpg" // tedd a képet a /public mappába ezen a néven
-              width={900}
-              height={1200}
+              width={450}
+              height={580}
               priority
               alt="Nikolas portré – elegáns, sötét garbóban, nyugodt erő"
-              className="rounded-[20px] object-cover"
+              className="rounded-[16px] object-cover"
             />
           </div>
 
           {/* Aláírás-kártya */}
-          <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4">
-            <p className="text-white/90 font-medium">Nikolas</p>
+          <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-center md:text-left">
+            <p className="text-white/90 font-medium text-lg">Nikolas</p>
             <p className="text-white/60 text-sm">
-              Empatikus, földelt és tudatos jelenlét. Bizalom, béke, mélység és
-              erő – elegánsan.
+              Energetikai harmonizáció & életmód tanácsadás
             </p>
           </div>
         </div>
@@ -98,15 +97,15 @@ export default function AboutPage() {
             A történetem
           </h2>
           <p className="text-white/75">
-            Gyermekkorom óta kísér a finom érzékelés – mindig figyeltem, hogyan
+            Gyermekkorom óta kísér a finom érzékelés mindig figyeltem, hogyan
             működnek az emberek, hol akad el az energia, hogyan tükröződik a
             lélek fénye a testben, a mozdulatokban és a szavakban. Ezt a
             látást nem választottam; velem született. A döntés az volt, hogy
             megtanuljam kezelni, fejleszteni és szolgálatba állítani.
           </p>
           <p className="text-white/75 mt-4">
-            Tanulmányaim – energetika, mindfulness, szellemgyógyászat,
-            agykontroll, pszichotronika, reiki, masszázs – mind hozzátettek
+            Tanulmányaim energetika, mindfulness, szellemgyógyászat,
+            agykontroll, pszichotronika, reiki, masszázs mind hozzátettek
             valamit ahhoz, hogy ma már <em>rendszerként</em> lássam az embert.
             A folyamat lényege nem a „javítás”, hanem a finom hangolás: amikor
             a csendben újra meghallod a saját belső hangod.
@@ -118,10 +117,10 @@ export default function AboutPage() {
             Hogyan dolgozom?
           </h2>
           <ul className="space-y-3 text-white/75">
-            <li>• Nyugodt, bizalmi tér – ítéletek nélkül, teljes figyelemmel.</li>
+            <li>• Nyugodt, bizalmi tér ítéletek nélkül, teljes figyelemmel.</li>
             <li>• Finom energetikai érzékelés és célzott harmonizáció.</li>
             <li>• Gyógynövények és táplálékkiegészítők józan, személyre szabott használata.</li>
-            <li>• Tudatos étkezés és életmód – egyszerű, követhető lépésekben.</li>
+            <li>• Tudatos étkezés és életmód egyszerű, követhető lépésekben.</li>
             <li>• Személyesen és online (Zoom) konzultációk.</li>
           </ul>
           <div className="mt-5 rounded-xl border border-white/10 bg-[#2A1F2C]/70 p-4">
@@ -157,24 +156,6 @@ export default function AboutPage() {
           </a>
         </div>
       </section>
-
-      {/* SEO – JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Nikolas",
-            url: "https://lightmind.hu/about",
-            jobTitle: "Energetikai harmonizáció",
-            brand: "LightMind",
-            image: "https://lightmind.hu/nikolas-portrait.jpg",
-            sameAs: [],
-          }),
-        }}
-      />
     </main>
   );
 }
-
