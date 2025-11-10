@@ -1,53 +1,31 @@
-import type { Metadata } from "next";
 import "./globals.css";
-import Header from "../components/Header";
+import type { Metadata } from "next";
+import Header from "@/components/Header";
+import SiteFooter from "@/components/SiteFooter";
 
-// Láblécet közvetlenül itt definiáljuk, hogy ne legyen import gond
-function SiteFooter() {
-  return (
-    <footer className="mt-20 border-t border-white/10">
-      <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-white/70 text-center">
-        <div>© {new Date().getFullYear()} LightMind • Minden jog fenntartva.</div>
-        <div className="mt-2">
-          Oktatási célú információk, nem minősülnek orvosi tanácsnak.
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-
-export const metadata = {
-  metadataBase: new URL("https://lightmind.vercel.app"),
-  title: "LightMind – Spirituális útmutatás",
-  description: "Spiritualitás • Energetikai egyensúly • Tudatos étkezés",
-  alternates: { canonical: "/" },
-  openGraph: {
-    title: "LightMind – Spirituális útmutatás",
-    description: "Spiritualitás • Energetikai egyensúly • Tudatos étkezés",
-    url: "/",
-    siteName: "LightMind",
-    type: "website",
-    images: ["/og.png"], // <-- ez használja a public/og.png képet
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "LightMind – Spirituális útmutatás",
-    description: "Spiritualitás • Energetikai egyensúly • Tudatos étkezés",
-    images: ["/lightmind-logo.jpeg"],
-
-  },
-  robots: { index: true, follow: true },
+export const metadata: Metadata = {
+  title: "LightMind",
+  description: "Spirituális útmutatás és energetikai harmonizáció",
 };
-
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="hu">
-      <body className="bg-[#291C29] text-[#F3EFE9] min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col bg-[#291C29] text-[#F3EFE9] relative">
+        {/* Lila háttér fény */}
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(1200px_800px_at_50%_-10%,rgba(139,92,246,0.25),transparent_70%)]" />
+
         <Header />
-        <main className="flex-grow">{children}</main>
-        <SiteFooter />
+
+        {/* Tartalom szekció és footer közti átmenet */}
+        <main className="flex-grow bg-gradient-to-b from-[#2A1F2C]/90 via-[#241B27]/90 to-[#1B1520]/95">
+          <div className="relative z-10">{children}</div>
+        </main>
+
+        {/* Footer – szintén lilás átmenet */}
+        <footer className="bg-gradient-to-b from-[#1B1520] via-[#241B27] to-[#2A1F2C] border-t border-white/10">
+          <SiteFooter />
+        </footer>
       </body>
     </html>
   );
