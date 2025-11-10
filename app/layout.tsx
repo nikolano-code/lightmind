@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
-import SiteFooter from "@/components/SiteFooter";
+import Footer from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "LightMind",
