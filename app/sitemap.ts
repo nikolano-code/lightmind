@@ -1,12 +1,17 @@
 // app/sitemap.ts
 export default function sitemap() {
-  const base = "https://lightmind.vercel.app"; // ha saját domained lesz, itt cseréld
+  const base = "https://lightmind.hu";
 
-  const routes = ["", "/about", "/services", "/contact"].map((path) => ({
+  const routes = [
+    "",
+    "/about",
+    "/services",
+    "/contact",
+  ].map((path) => ({
     url: `${base}${path}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: path === "" ? 1 : 0.8,
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: path === "" ? 1.0 : 0.8,
   }));
 
   return routes;
