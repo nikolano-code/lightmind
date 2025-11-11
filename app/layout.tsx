@@ -6,6 +6,11 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "LightMind",
   description: "Spirituális útmutatás és energetikai harmonizáció",
+  icons: {
+    icon: "/lightmind-icon.png", // <- ezt a fájlt a public mappába tedd
+    shortcut: "/lightmind-icon.png",
+    apple: "/lightmind-icon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
