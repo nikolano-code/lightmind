@@ -58,7 +58,7 @@ export default function AboutPage() {
           <div className="mt-4 rounded-xl bg-white/5 ring-1 ring-white/10 px-4 py-3">
             <p className="text-white text-lg font-semibold">Nikolas</p>
             <p className="text-white/70 text-sm">
-              LightMind alapító 
+              LIGHTMIND megálmodója
             </p>
           </div>
         </div>
