@@ -10,7 +10,7 @@ export default function ServicesPage() {
         <p className="mt-4 text-white/80 max-w-3xl mx-auto leading-relaxed">
           A LightMind térben a test–elme–lélek egységét finoman, mégis
           határozottan hangoljuk újra. Válaszd ki, amire most leginkább
-          szükséged van – vagy kérj rövid útmutatást, és segítek a döntésben.
+          szükséged van vagy kérj rövid útmutatást, és segítek a döntésben.
         </p>
       </header>
 
@@ -89,7 +89,7 @@ export default function ServicesPage() {
           <h2 className="text-2xl font-semibold text-white">Étrend & életmód mentorálás</h2>
           <p className="mt-3 text-white/75 leading-relaxed">
             Stabil, fenntartható rendszer: egyszerű, működő étrendi irányok, alvás- és
-            ritmusbeállítás, mozgás-minimum, reális szokásváltás – túlzások nélkül.
+            ritmusbeállítás, mozgás-minimum, reális szokásváltás túlzások nélkül.
           </p>
           <ul className="mt-4 text-white/70 space-y-1">
             <li>• Kezdő csomag: 1×90 perc + egyhetes követés</li>
