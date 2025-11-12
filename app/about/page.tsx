@@ -9,7 +9,7 @@ export default function AboutPage() {
       <header className="text-center mb-14">
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-[0.02em] text-center">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#DBB36A] via-[#F3EFE9] to-[#A290C4]">
-            LIGHTMIND
+            Rólam
           </span>{" "}
          
         </h1>
