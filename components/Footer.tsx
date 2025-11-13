@@ -10,6 +10,9 @@ export default function Footer() {
         <Link href="/aszf" className="hover:text-white transition">
           ÁSZF
         </Link>
+        <Link href="/privacy" className="hover:text-white transition">
+          Adatvédelem
+        </Link>
       </div>
 
       <p className="text-white/40">
@@ -18,3 +21,4 @@ export default function Footer() {
     </footer>
   );
 }
+Írás nekik: Nikolas Póda
