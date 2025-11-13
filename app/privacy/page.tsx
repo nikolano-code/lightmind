@@ -29,7 +29,7 @@ export default function PrivacyPage() {
           <strong>Weboldal:</strong> LightMind – spirituális és önismereti tartalmak
         </p>
         <p className="mb-2">
-          <strong>E-mail:</strong> info@lightmind.hu (írd át a saját, valós címedre)
+          <strong>E-mail:</strong> nikolano@icloud.com
         </p>
         <p>
           A weboldal elsődleges célja információátadás és kapcsolatfelvétel
@@ -133,9 +133,9 @@ export default function PrivacyPage() {
           7. Az adatvédelmi tájékoztató módosítása
         </h2>
         <p>
-          Fenntartom a jogot, hogy a jelen adatvédelmi tájékoztatót a jövőben –
+          Fenntartom a jogot, hogy a jelen adatvédelmi tájékoztatót a jövőben,
           különösen új funkciók (webshop, online fizetés, hírlevél, tagság)
-          bevezetése esetén – módosítsam vagy kibővítsem. Az aktuális,
+          bevezetése esetén módosítsam vagy kibővítsem. Az aktuális,
           hatályos verzió mindig ezen az oldalon érhető el.
         </p>
       </section>
