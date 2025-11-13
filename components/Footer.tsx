@@ -1,10 +1,23 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
-    <footer className="mt-20 border-t border-white/10">
-      <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-white/70 text-center">
-        <div>© {new Date().getFullYear()} LightMind • Minden jog fenntartva.</div>
-        <div className="mt-2">Oktatási célú információk, nem minősülnek orvosi tanácsnak.</div>
+    <footer className="mx-auto max-w-6xl px-6 py-10 text-center text-white/60 text-sm space-y-4">
+
+      <div className="flex justify-center gap-6">
+        <Link href="/legal" className="hover:text-white transition">
+          Jogi nyilatkozat
+        </Link>
+
+        {/* Ha később lesz külön oldal (ÁSZF, Adatvédelem), ide jönnek */}
+        {/* <Link href="/privacy" className="hover:text-white transition">Adatvédelem</Link> */}
+        {/* <Link href="/terms" className="hover:text-white transition">ÁSZF</Link> */}
       </div>
+
+      <p className="text-white/40">
+        © {new Date().getFullYear()} LightMind — minden jog fenntartva.
+      </p>
+
     </footer>
   );
 }
