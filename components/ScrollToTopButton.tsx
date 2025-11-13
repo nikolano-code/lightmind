@@ -1,28 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 export default function ScrollToTopButton() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // 200px görgetés után jelenjen meg
-      setIsVisible(window.scrollY > 200);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    if (typeof window !== "undefined") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   };
-
-  if (!isVisible) return null;
 
   return (
     <button
@@ -30,19 +16,19 @@ export default function ScrollToTopButton() {
       aria-label="Ugrás az oldal tetejére"
       className="
         fixed bottom-6 right-6 z-40
-        rounded-full
-        bg-[#FDB836]
-        text-[#1B1520]
-        shadow-lg shadow-black/40
-        w-12 h-12
         flex items-center justify-center
-        text-xl
-        hover:bg-[#f9c75b]
-        transition
-        border border-white/50
+        w-12 h-12 md:w-14 md:h-14
+        rounded-full
+        bg-gradient-to-tr from-[#FDB836] via-[#FACC6B] to-[#F97316]
+        text-[#1B1520]
+        shadow-[0_0_25px_rgba(253,184,54,0.75)]
+        border border-white/40
+        hover:scale-105 hover:shadow-[0_0_35px_rgba(253,184,54,0.9)]
+        active:scale-95
+        transition-all duration-300
       "
     >
-      ↑
+      <span className="text-2xl leading-none -mt-[2px]">↑</span>
     </button>
   );
 }

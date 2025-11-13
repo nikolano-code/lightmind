@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export const metadata: Metadata = {
   title: "LightMind",
@@ -11,13 +12,15 @@ export const metadata: Metadata = {
       { url: "/favicon.ico?v=4" },
       { url: "/apple-touch-icon.png?v=4", sizes: "180x180", type: "image/png" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png?v=4", sizes: "180x180" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png?v=4", sizes: "180x180" }],
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="hu">
       <body className="min-h-screen flex flex-col bg-[#291C29] text-[#F3EFE9] relative">
@@ -25,7 +28,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div
           className="absolute inset-0 -z-10"
           style={{
-            background: "radial-gradient(1200px 800px at 50% -10%, rgba(139,92,246,0.25), transparent 70%)",
+            background:
+              "radial-gradient(1200px 800px at 50% -10%, rgba(139,92,246,0.25), transparent 70%)",
           }}
         />
 
@@ -40,6 +44,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="bg-gradient-to-b from-[#1B1520] via-[#241B27] to-[#2A1F2C] border-t border-white/10">
           <Footer />
         </footer>
+
+        {/* Vissza a tetejére gomb */}
+        <ScrollToTopButton />
       </body>
     </html>
   );
