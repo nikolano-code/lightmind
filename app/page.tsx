@@ -8,7 +8,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_50%_-10%,rgba(41,211,196,0.20),transparent_60%)] pointer-events-none" />
 
       {/* HERO */}
-      <section className="relative z-10 text-center max-w-3xl pt-24 pb-12">
+      <section className="relative z-10 text-center max-w-3xl pt-24 pb-12 hero animate">
         {/* LOGÓ – kör alakú maszkolás + gyűrű + fényglow */}
         <div className="mx-auto mb-8 relative">
           {/* puha aura */}

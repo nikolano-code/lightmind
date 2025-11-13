@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16">
+    <main className="mx-auto max-w-5xl px-6 py-16 hero animate">
       {/* Hero – LIGHTMIND + főnix jelvény */}
       <header className="text-center mb-14">
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-[0.02em] text-center">
@@ -30,7 +30,7 @@ export default function AboutPage() {
         </div>
 
         <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] p-6">
-          <h3 className="text-lg font-semibold text-white">Gyógynövény &amp; életmód, étkezés</h3>
+          <h3 className="text-lg font-semibold text-white">Gyógynövény, életmód, étkezés</h3>
           <p className="text-sm text-white/70">Tiszta, követhető irányok</p>
         </div>
 
