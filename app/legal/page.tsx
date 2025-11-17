@@ -20,7 +20,7 @@ export default function LegalPage() {
 
         <div className="mt-4 space-y-2 text-white/70">
           <p><strong>Üzemeltető:</strong> Nikolas (magánszemély)</p>
-          <p><strong>E-mail:</strong> nikolano@icloud.com (állítsd át a sajátodra)</p>
+          <p><strong>E-mail:</strong> nikolano@icloud.com</p>
           <p>
             <strong>Tevékenység:</strong> személyes blog, spirituális tartalmak, 
             önismereti írások és tájékoztatás.
