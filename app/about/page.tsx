@@ -4,13 +4,29 @@ import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16 hero animate">
-      {/* Hero – cím + rövid intro */}
+    <main className="mx-auto max-w-6xl px-6 py-16 hero animate">
+      {/* HERO – logó + cím + rövid intro */}
       <header className="text-center mb-14">
+        {/* kör logó arany aurával – mint a Szolgáltatások oldalon */}
+        <div className="mx-auto mb-6 relative w-28 h-28 md:w-32 md:h-32">
+          <div className="absolute inset-0 blur-3xl bg-[radial-gradient(circle_at_50%_30%,rgba(216,179,106,0.35),transparent_70%)] pointer-events-none" />
+          <div className="relative w-full h-full rounded-full bg-[#1B1420] ring-1 ring-[#D8B36A]/50 shadow-[0_0_40px_rgba(216,179,106,0.45)] overflow-hidden">
+            <Image
+              src="/lightmind-logo.jpeg"
+              alt="LightMind embléma"
+              fill
+              className="object-cover object-center"
+              sizes="120px"
+              priority
+            />
+          </div>
+        </div>
+
         <p className="text-sm tracking-[0.25em] uppercase text-white/50 mb-2">
           LightMind • Nikolas
         </p>
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-[0.02em]">
+
+        <h1 className="text-4xl md:text-5xl font-semibold text-[#D8B36A]">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#DBB36A] via-[#F3EFE9] to-[#A290C4]">
             Rólam
           </span>
@@ -19,9 +35,9 @@ export default function AboutPage() {
         <p className="mt-5 text-white/80 max-w-3xl mx-auto leading-relaxed">
           Mindig is érdekelt, hogyan működik az ember, mi rejlik a szavak mögött,
           és mi történik az energiáink szintjén. A valódi harmónia szerintem belül
-          születik meg amikor az elme, a test és a lélek újra összhangba kerül.
-          A LightMind ebből az útból nőtt ki, finomhangolt figyelem,
-          és gyakorlati útmutatás egy békés, nyugodt, szeretetteljes térben.
+          születik meg, amikor az elme, a test és a lélek újra összhangba kerül.
+          A LightMind ebből az útból nőtt ki: finomhangolt figyelem és gyakorlati
+          útmutatás egy békés, nyugodt, szeretetteljes térben.
         </p>
       </header>
 
@@ -32,17 +48,20 @@ export default function AboutPage() {
           <div className="space-y-4 text-white/80 leading-relaxed text-sm md:text-base">
             <p>
               Spirituális kísérőként és energetikai segítőként abban támogatok,
-              hogy visszatalálj a saját belső erődhöz. Nem jósolás, nem „megjavítás”,
-              hanem mintát mutat ahhoz, hogy tisztábban lásd önmagad és az utadat.
+              hogy visszatalálj a saját belső erődhöz. Nem jóslás, nem „megjavítás”,
+              hanem egy olyan folyamat, amelyben tisztábban látod önmagad
+              és az utadat.
             </p>
             <p>
-              A munkám lényege a finom érzékelés és a földelt, gyakorlatias szemlélet
-              találkozása. Egyszerre dolgozunk az energetikai rétegekkel és a
-              mindennapi szokásokkal étkezéssel, ritmusoddal, terhelhetőségeddel.
+              A munkám lényege a finom érzékelés és a földelt, gyakorlatias
+              szemlélet találkozása. Egyszerre dolgozunk az energetikai
+              rétegekkel és a mindennapi szokásokkal az étkezéseddel,
+              ritmusoddal, terhelhetőségeddel.
             </p>
             <p>
               Hiszem, hogy mindenkiben ott van a képesség, hogy újra felépítse
-              önmagát.
+              önmagát. Az én feladatom az, hogy ebben kísérjelek, tükröt tartsak,
+              és segítsek visszahangolni a saját belső középpontodra.
             </p>
           </div>
         </div>
@@ -99,7 +118,7 @@ export default function AboutPage() {
               Lelki beszélgetések
             </h3>
             <p className="text-sm text-white/70">
-              Mindfulness, csend, fókusz egy tér, ahol kimondhatod, ami benned van,
+              Mindfulness, csend, fókusz, ahol kimondhatod, ami benned van,
               ítéletek nélkül, teljes figyelemmel.
             </p>
           </div>
@@ -112,15 +131,15 @@ export default function AboutPage() {
           <h2 className="text-2xl font-semibold text-white mb-3">A történetem</h2>
           <div className="space-y-4 text-white/80 leading-relaxed text-sm md:text-base">
             <p>
-              Gyermekkorom óta kísér az érzékelés: mindig figyeltem, hogyan működnek
-              az emberek, hol akad el az energia, hogyan tükröződik a lélek fénye
-              a testben, a mozdulatokban és a szavakban. Ezt a látást nem választottam
-              velem született. A döntés és a feladat az volt, hogy megtanuljam kezelni,
-              fejleszteni és szolgálatba állítani.
+              Gyermekkorom óta kísér az érzékelés: mindig figyeltem, hogyan
+              működnek az emberek, hol akad el az energia, hogyan tükröződik
+              a lélek fénye a testben, a mozdulatokban és a szavakban. Ezt a
+              látást nem választottam velem született. A döntés és a feladat
+              az volt, hogy megtanuljam kezelni, fejleszteni és szolgálatba állítani.
             </p>
             <p>
-              Az évek során olyan módszereket tanulmányoztam, amelyek megtartják az
-              embert a középpontban: energetika, mindfulness, szellemgyógyászat,
+              Az évek során olyan módszereket tanulmányoztam, amelyek megtartják
+              az embert a középpontban: energetika, mindfulness, szellemgyógyászat,
               agykontroll, pszichotronika, reiki, számmisztika, asztrológia,
               étkezés és életmód. Nem varázslat, hanem finomhangolt figyelem,
               jelenlét és gyakorlati lépések kombinációja.
@@ -129,8 +148,8 @@ export default function AboutPage() {
               Idővel kialakult a saját technikám egy rendszer, amely a gyökérben
               kezdi oldani a problémákat, és egyszerre hat az energiaszintre,
               a testre és a gondolkodásra. A folyamat lényege a finom hangolás:
-              amikor a csendben újra felfedezed a saját belső erőd, és emlékezni kezdesz,
-              mire vagy valójában képes.
+              amikor a csendben újra felfedezed a saját belső erőd, és emlékezni
+              kezdesz, mire vagy valójában képes.
             </p>
           </div>
         </article>
@@ -147,7 +166,7 @@ export default function AboutPage() {
             </li>
             <li className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
               Gyógynövények és táplálékkiegészítők személyre szabott,
-              józan használata túlzások és „csodaszerek” nélkül.
+              józan használata, túlzások és „csodaszerek” nélkül.
             </li>
             <li className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
               Tudatos étkezés és életmód egyszerű, követhető lépésekben,
