@@ -28,6 +28,9 @@ export default function Header() {
       <Link href="/services" className={linkCls("/services")}>
         Szolgáltatások
       </Link>
+      <Link href="/kerdoiv" className={linkCls("/kerdoiv")}> 
+        Kérdőív
+      </Link>
       <Link href="/contact" className={linkCls("/contact")}>
         Kapcsolat
       </Link>
