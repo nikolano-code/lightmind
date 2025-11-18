@@ -1,35 +1,30 @@
 "use client";
+
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import type { Metadata } from "next";
-import "../app/globals.css";
 
-
-// 👇 ÚJ: Google fontok
+// Google fontok
 import { Inter, Playfair_Display } from "next/font/google";
-// 👇 ÚJ: betűtípusok inicializálása (latin + latin-ext a magyar ékezetekhez)
+
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"], // normál, félkövér
+  weight: ["400", "500", "600"],
   variable: "--font-inter",
   display: "swap",
 });
 
 const playfair = Playfair_Display({
   subsets: ["latin", "latin-ext"],
-  weight: ["600", "700"], // címsorokhoz elegánsabb
+  weight: ["600", "700"],
   variable: "--font-playfair",
   display: "swap",
 });
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  // Ha pontos egyezést szeretnél (/services csak ott aktív):
-  // const isActive = (href: string) => pathname === href;
-
-  // Ha alútvonalaknál is legyen aktív (pl. /services/valami):
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/");
 
@@ -40,10 +35,24 @@ export default function Header() {
 
   const Nav = () => (
     <nav className="flex flex-col md:flex-row gap-4 md:gap-6 items-center">
-      <Link href="/" className={linkCls("/")}>Főoldal</Link>
-      <Link href="/about" className={linkCls("/about")}>Rólam</Link>
-      <Link href="/services" className={linkCls("/services")}>Szolgáltatások</Link>
-      <Link href="/contact" className={linkCls("/contact")}>Kapcsolat</Link>
+      <Link href="/" className={linkCls("/")}>
+        Főoldal
+      </Link>
+      <Link href="/about" className={linkCls("/about")}>
+        Rólam
+      </Link>
+      <Link href="/services" className={linkCls("/services")}>
+        Szolgáltatások
+      </Link>
+      {/* ÚJ MENÜPONT – KÉRDŐÍV */}
+      <Link href="/kerdoiv" className={linkCls("/kerdoiv")}>
+        Kérdőív
+      </Link>
+      <Link href="/contact" className={linkCls("/contact")}>
+        Kapcsolat
+      </Link>
+
+      {/* CTA gomb */}
       <Link
         href="/contact"
         className="md:ml-2 rounded-xl px-4 py-2 bg-[#D8B36A] text-[#291C29] hover:bg-[#B8903F] transition"
@@ -56,7 +65,10 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#291C29]/70 backdrop-blur-md">
       <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-        <Link href="/" className="font-semibold tracking-wide text-lg">
+        <Link
+          href="/"
+          className={`${playfair.className} font-semibold tracking-wide text-lg text-white`}
+        >
           LightMind
         </Link>
 
@@ -69,7 +81,7 @@ export default function Header() {
         <button
           onClick={() => setOpen((v) => !v)}
           className="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg border border-white/15"
-          aria-label="Menu"
+          aria-label="Menü"
         >
           <span className="text-xl">☰</span>
         </button>
