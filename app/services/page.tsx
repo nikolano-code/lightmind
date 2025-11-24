@@ -158,7 +158,7 @@ export default function ServicesPage() {
           <div className="relative">
             <div className="relative mb-4 h-44 w-full overflow-hidden rounded-xl border border-white/10">
               <Image
-                src="/services-mindfulness.jpeg"
+                src="/services-lifestyle.jpeg"
                 alt="Mindfulness, meditáció, légzésgyakorlat"
                 fill
                 className="object-cover"
@@ -200,7 +200,7 @@ export default function ServicesPage() {
           <div className="relative">
             <div className="relative mb-4 h-44 w-full overflow-hidden rounded-xl border border-white/10">
               <Image
-                src="/services-lifestyle.jpeg"
+                src="/services-mindfulness.jpeg"
                 alt="Életmódváltás, étkezés, finom egyensúly"
                 fill
                 className="object-cover"
