@@ -2,6 +2,31 @@
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Rólam | LightMind",
+  description:
+    "Nikolas – spirituális kísérő, energetikai harmonizáció és tudatos életmód. A LightMind története és a mögötte lévő szemlélet.",
+  alternates: {
+    canonical: "https://lightmind.hu/about",
+  },
+  openGraph: {
+    title: "Rólam | LightMind",
+    description:
+      "Finom energetikai érzékelés, földelt szemlélet és gyakorlati lépések – ismerd meg a LightMind mögött álló embert.",
+    url: "https://lightmind.hu/about",
+    siteName: "LightMind",
+    images: [
+      {
+        url: "/nikolas-portrait-og.jpg", // ha lesz külön OG kép, ezt használjuk
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "hu_HU",
+    type: "profile",
+  },
+};
+
 export default function AboutPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-16 hero animate">

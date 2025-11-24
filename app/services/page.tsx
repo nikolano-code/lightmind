@@ -2,6 +2,32 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// 🔹 SEO meta erre az oldalra
+export const metadata = {
+  title: "Szolgáltatások | LightMind",
+  description:
+    "Energetikai harmonizáció, gyógynövény- és életmód tanácsadás, mindfulness – LightMind, Nikolas vezetésével.",
+  alternates: {
+    canonical: "https://lightmind.hu/services",
+  },
+  openGraph: {
+    title: "Szolgáltatások | LightMind",
+    description:
+      "Energetikai harmonizáció, tudatos életmód és gyógynövény tanácsadás egy békés, elegáns térben.",
+    url: "https://lightmind.hu/services",
+    siteName: "LightMind",
+    images: [
+      {
+        url: "/lightmind-og.jpg", // majd készíthetünk külön OG képet is
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "hu_HU",
+    type: "website",
+  },
+};
+
 export default function ServicesPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-16 hero animate">
@@ -30,7 +56,7 @@ export default function ServicesPage() {
         </h1>
         <p className="mt-4 text-white/80 max-w-3xl mx-auto leading-relaxed">
           A LightMind térben a test–elme–lélek egységét finoman, mégis határozottan
-          hangoljuk újra. Válaszd ki azt a folyamatot, ami most a legjobban hív
+          hangoljuk újra. Válaszd ki azt a folyamatot, ami most a legjobban hív,
           vagy írj nekem, és segítek az első lépés kiválasztásában.
         </p>
       </header>
@@ -160,7 +186,7 @@ export default function ServicesPage() {
               </Link>
               <Link
                 href="/about"
-                className="rounded-xl px-4 py-2 border border-white/15 text-white/90 hover:bg-white/5 transition"
+                className="rounded-xl px-4 py-2 border border-white/15 text:white/90 hover:bg-white/5 transition"
               >
                 Mit adhat nekem?
               </Link>
@@ -182,7 +208,7 @@ export default function ServicesPage() {
               />
             </div>
 
-            <h2 className="text-2xl font-semibold text-white">
+            <h2 className="text-2xl font-semibold text:white">
               Étrend & életmód mentorálás
             </h2>
             <p className="mt-3 text-white/75 leading-relaxed text-sm md:text-base">
@@ -204,7 +230,7 @@ export default function ServicesPage() {
               </Link>
               <Link
                 href="/contact"
-                className="rounded-xl px-4 py-2 border border-white/15 text-white/90 hover:bg-white/5 transition"
+                className="rounded-xl px-4 py-2 border border:white/15 text-white/90 hover:bg:white/5 transition hover:bg-white/5"
               >
                 Kérek visszajelzést
               </Link>
@@ -225,11 +251,11 @@ export default function ServicesPage() {
                 Személyes alkalmak
               </h3>
               <p className="text-white/75">
-                Csendes, nyugodt tér a tempót végig hozzád igazítjuk.
+                Csendes, nyugodt tér – a tempót végig hozzád igazítjuk.
               </p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
-              <h3 className="font-semibold text-white mb-1">
+            <div className="rounded-2xl border border:white/10 bg-white/5 px-4 py-4">
+              <h3 className="font-semibold text:white mb-1">
                 Online konzultáció
               </h3>
               <p className="text-white/75">
@@ -237,8 +263,8 @@ export default function ServicesPage() {
                 technikai útmutatót küldök.
               </p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
-              <h3 className="font-semibold text-white mb-1">
+            <div className="rounded-2xl border border:white/10 bg-white/5 px-4 py-4">
+              <h3 className="font-semibold text:white mb-1">
                 Előzetes mini-egyeztetés
               </h3>
               <p className="text-white/75">
@@ -282,15 +308,15 @@ export default function ServicesPage() {
             • Huzamos ideje érzed, hogy „nem találod a ritmusod”, és kifáraszt a
             folyamatos belső feszültség.
           </li>
-          <li className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3">
+          <li className="rounded-xl border border:white/10 bg-white/[0.04] px-4 py-3">
             • Az alvásod, energiaszinted, emésztésed jelzi, hogy valamin
             változtatni kellene.
           </li>
-          <li className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3">
+          <li className="rounded-xl border border:white/10 bg-white/[0.04] px-4 py-3">
             • Döntéshelyzetben vagy, és szükséged van tisztább belső irányra,
             megerősítésre.
           </li>
-          <li className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3">
+          <li className="rounded-xl border border:white/10 bg-white/[0.04] px-4 py-3">
             • Étkezés, kiegészítők, gyógynövények terén túl sok az információ,
             és jó lenne egy tiszta, rád szabott rendszer.
           </li>
@@ -299,7 +325,7 @@ export default function ServicesPage() {
 
       {/* Záró CTA */}
       <section className="mt-14 text-center">
-        <div className="inline-flex flex-col items-center gap-4 rounded-2xl border border-white/10 bg-gradient-to-b from-[#2A1F2C]/80 to-[#1B1520]/90 px-6 py-8">
+        <div className="inline-flex flex-col items-center gap-4 rounded-2xl border border:white/10 bg-gradient-to-b from-[#2A1F2C]/80 to-[#1B1520]/90 px-6 py-8">
           <h3 className="text-2xl font-semibold text-white">
             Kezdjük el finoman, mégis határozottan.
           </h3>
@@ -317,7 +343,7 @@ export default function ServicesPage() {
             </Link>
             <Link
               href="/about"
-              className="rounded-xl px-5 py-3 border border-white/15 text-white/90 hover:bg-white/5 transition"
+              className="rounded-xl px-5 py-3 border border:white/15 text-white/90 hover:bg-white/5 transition"
             >
               Ismerj meg jobban
             </Link>

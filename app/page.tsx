@@ -3,6 +3,54 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "../components/ContactForm";
 
+// app/page.tsx
+
+export const metadata = {
+  title: "LightMind – Energetikai harmonizáció • Tudatos életmód • Nikolas",
+  description:
+    "Finom energetikai harmonizáció, mindfulness, életmód-támogatás és természetes iránymutatás Nikolasszal. LightMind – egy tér, ahol a test, az elme és a lélek újra összhangba kerül.",
+  alternates: {
+    canonical: "https://lightmind.hu",
+  },
+  openGraph: {
+    title: "LightMind – Energetikai harmonizáció • Tudatos életmód",
+    description:
+      "Energetikai harmonizáció, gyógynövényes és életmód tanácsadás, mindfulness támogatás – Nikolas vezetésével, személyesen és online.",
+    url: "https://lightmind.hu",
+    siteName: "LightMind",
+    images: [
+      {
+        url: "/lightmind-og-main.jpg", // ha szeretnéd, generálok hozzá képet
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "hu_HU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LightMind – Energetikai harmonizáció • Tudatos életmód",
+    description:
+      "Finom energetikai hangolás, lelki támogatás és életmód iránymutatás egy szeretetteljes térben. Személyesen és online.",
+    images: ["/lightmind-og-main.jpg"],
+  },
+  keywords: [
+    "energetikai harmonizáció",
+    "energia kezelés",
+    "spirituális útmutatás",
+    "mindfulness",
+    "meditáció",
+    "életmód tanácsadás",
+    "gyógynövény tanácsadás",
+    "nikolas lightmind",
+    "lelki támogatás",
+    "energetika",
+    "lightmind",
+    "nikolas póda",
+    "Póda Nikolas",
+  ],
+};
 export default function Home() {
   return (
     <main className="relative min-h-screen flex flex-col items-center bg-[#291C29] text-[#F3EFE9] px-6">

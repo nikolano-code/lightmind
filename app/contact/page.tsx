@@ -1,7 +1,22 @@
 import ContactForm from "../../components/ContactForm";
 
+// 🔹 SEO meta erre az oldalra
 export const metadata = {
   title: "Kapcsolat | LightMind",
+  description:
+    "Vedd fel velem a kapcsolatot időpont-egyeztetéshez, kérdésekhez vagy finom energetikai, életmód-támogatáshoz.",
+  alternates: {
+    canonical: "https://lightmind.hu/contact",
+  },
+  openGraph: {
+    title: "Kapcsolat | LightMind",
+    description:
+      "Írj üzenetet, ha időpontot szeretnél vagy kérdésed van a LightMind folyamataival kapcsolatban.",
+    url: "https://lightmind.hu/contact",
+    siteName: "LightMind",
+    locale: "hu_HU",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {
