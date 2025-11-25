@@ -5,10 +5,10 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);          // mobil főmenü
+  const [servicesOpen, setServicesOpen] = useState(false); // desktop Szolgáltatások lenyíló
   const pathname = usePathname();
 
-  // Aktív link logika
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/");
 
@@ -17,9 +17,8 @@ export default function Header() {
       isActive(href) ? "text-[#D8B36A]" : "text-white/90 hover:text-[#D8B36A]"
     }`;
 
-  // ---- DESKTOP MENÜ ----
-  const NavDesktop = () => (
-    <nav className="hidden md:flex flex-row gap-6 items-center">
+  const Nav = () => (
+    <nav className="flex flex-col md:flex-row gap-4 md:gap-6 items-center">
       <Link href="/" className={linkCls("/")}>
         Főoldal
       </Link>
@@ -28,67 +27,93 @@ export default function Header() {
         Rólam
       </Link>
 
-      {/* SZOLGÁLTATÁSOK DROPDOWN */}
-      <div className="relative group">
+      {/* --- SZOLGÁLTATÁSOK DROPDOWN (DESKTOPON HOVER, MOBILON SIMA LINK + ALMENÜ) --- */}
+      <div
+        className="relative"
+        onMouseEnter={() => setServicesOpen(true)}
+        onMouseLeave={() => setServicesOpen(false)}
+      >
         <button
-          className={`transition flex items-center gap-1 ${
-            pathname.startsWith("/services")
+          type="button"
+          className={`inline-flex items-center gap-1 ${
+            isActive("/services")
               ? "text-[#D8B36A]"
               : "text-white/90 hover:text-[#D8B36A]"
           }`}
         >
           Szolgáltatások
-          <span className="text-xs mt-[1px]">▾</span>
+          <span className="text-xs">▾</span>
         </button>
 
-        {/* Dropdown box */}
-        <div
-          className="
-            pointer-events-none opacity-0 translate-y-1
-            group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-y-0
-            absolute left-0 mt-3 w-64 rounded-2xl border border-white/10
-            bg-[#1B1420]/95 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.45)]
-            transition-all
-          "
-        >
-          <div className="py-2">
+        {/* DESKTOP lenyíló */}
+        {servicesOpen && (
+          <div className="hidden md:block absolute right-0 mt-2 w-64 rounded-2xl border border-white/10 bg-[#241827] shadow-xl py-2 z-50">
             <Link
               href="/services"
-              className="block px-4 py-2 text-sm text-white/85 hover:bg-white/5"
+              className="block px-4 py-2 text-sm text-white/90 hover:bg-white/5 hover:text-[#D8B36A]"
             >
               Összes szolgáltatás
             </Link>
-
-            <div className="my-1 h-px bg-white/10"></div>
-
+            <div className="my-1 h-px bg-white/10" />
             <Link
-              href="/services/energetikai-harmonizacio"
-              className="block px-4 py-2 text-sm text-white/85 hover:bg-white/5"
+              href="/services#energetikai-harmonizacio"
+              className="block px-4 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-[#D8B36A]"
             >
               Energetikai harmonizáció
             </Link>
-
             <Link
-              href="/services#herbs"
-              className="block px-4 py-2 text-sm text-white/85 hover:bg-white/5"
+              href="/services#gyogynoveny-tanacsadas"
+              className="block px-4 py-2 text-sm text-white/80 hover:bg:white/5 hover:text-[#D8B36A]"
             >
-              Gyógynövény & kiegészítők
+              Gyógynövény- és kiegészítő tanácsadás
             </Link>
-
             <Link
-              href="/services#mindfulness"
-              className="block px-4 py-2 text-sm text-white/85 hover:bg-white/5"
+              href="/services#mindfulness-hangolas"
+              className="block px-4 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-[#D8B36A]"
             >
               Mindfulness hangolás
             </Link>
-
             <Link
-              href="/services#lifestyle"
-              className="block px-4 py-2 text-sm text-white/85 hover:bg-white/5"
+              href="/services#eletmod-mentoralas"
+              className="block px-4 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-[#D8B36A]"
             >
-              Étrend & életmód mentorálás
+              Étrend &amp; életmód mentorálás
             </Link>
           </div>
+        )}
+
+        {/* MOBIL almenü – a fő /services link alatt simán listában jelenik meg */}
+        <div className="md:hidden mt-1 space-y-1 text-sm">
+          <Link
+            href="/services"
+            className="block text-white/80 hover:text-[#D8B36A]"
+          >
+            Összes szolgáltatás
+          </Link>
+          <Link
+            href="/services#energetikai-harmonizacio"
+            className="block text-white/70 hover:text-[#D8B36A]"
+          >
+            Energetikai harmonizáció
+          </Link>
+          <Link
+            href="/services#gyogynoveny-tanacsadas"
+            className="block text-white/70 hover:text-[#D8B36A]"
+          >
+            Gyógynövény- és kiegészítők
+          </Link>
+          <Link
+            href="/services#mindfulness-hangolas"
+            className="block text-white/70 hover:text-[#D8B36A]"
+          >
+            Mindfulness hangolás
+          </Link>
+          <Link
+            href="/services#eletmod-mentoralas"
+            className="block text-white/70 hover:text-[#D8B36A]"
+          >
+            Életmód mentorálás
+          </Link>
         </div>
       </div>
 
@@ -102,55 +127,7 @@ export default function Header() {
 
       <Link
         href="/contact"
-        className="ml-2 rounded-xl px-4 py-2 bg-[#D8B36A] text-[#291C29] hover:bg-[#B8903F] transition"
-      >
-        Időpontot kérek
-      </Link>
-    </nav>
-  );
-
-  // ---- MOBIL MENÜ ----
-  const NavMobile = () => (
-    <nav className="flex flex-col gap-4 items-start md:hidden">
-      <Link href="/" className={linkCls("/")}>
-        Főoldal
-      </Link>
-
-      <Link href="/about" className={linkCls("/about")}>
-        Rólam
-      </Link>
-
-      {/* Mobilon az alkategóriák külön-külön jelennek meg */}
-      <Link href="/services" className={linkCls("/services")}>
-        Szolgáltatások (áttekintés)
-      </Link>
-      <Link
-        href="/services/energetikai-harmonizacio"
-        className={linkCls("/services/energetikai-harmonizacio")}
-      >
-        • Energetikai harmonizáció
-      </Link>
-      <Link href="/services#herbs" className="text-white/80 hover:text-[#D8B36A]">
-        • Gyógynövény & kiegészítők
-      </Link>
-      <Link href="/services#mindfulness" className="text-white/80 hover:text-[#D8B36A]">
-        • Mindfulness hangolás
-      </Link>
-      <Link href="/services#lifestyle" className="text-white/80 hover:text-[#D8B36A]">
-        • Étrend & életmód mentorálás
-      </Link>
-
-      <Link href="/kerdoiv" className={linkCls("/kerdoiv")}>
-        Kérdőív
-      </Link>
-
-      <Link href="/contact" className={linkCls("/contact")}>
-        Kapcsolat
-      </Link>
-
-      <Link
-        href="/contact"
-        className="w-full text-center rounded-xl px-4 py-2 bg-[#D8B36A] text-[#291C29] hover:bg-[#B8903F] transition mt-2"
+        className="md:ml-2 rounded-xl px-4 py-2 bg-[#D8B36A] text-[#291C29] hover:bg-[#B8903F] transition"
       >
         Időpontot kérek
       </Link>
@@ -164,22 +141,26 @@ export default function Header() {
           LightMind
         </Link>
 
-        <NavDesktop />
+        {/* Desktop */}
+        <div className="hidden md:block">
+          <Nav />
+        </div>
 
         {/* Mobil hamburger */}
         <button
           onClick={() => setOpen((v) => !v)}
           className="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg border border-white/15"
+          aria-label="Menu"
         >
           <span className="text-xl">☰</span>
         </button>
       </div>
 
-      {/* Mobil menü */}
+      {/* Mobil menü lenyíló */}
       {open && (
         <div className="md:hidden border-t border-white/10 bg-[#291C29]/95">
           <div className="mx-auto max-w-6xl px-4 py-4">
-            <NavMobile />
+            <Nav />
           </div>
         </div>
       )}
