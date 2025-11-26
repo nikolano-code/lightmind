@@ -180,7 +180,7 @@ export default function Header() {
                   onClick={() => setIsMobileOpen(false)}
                   className="block hover:text-[#D8B36A]"
                 >
-                  Gyógynövény & kiegészítők
+                  Gyógynövény és kiegészítők
                 </Link>
 
                 <Link
@@ -196,7 +196,7 @@ export default function Header() {
                   onClick={() => setIsMobileOpen(false)}
                   className="block hover:text-[#D8B36A]"
                 >
-                  Étrend & életmód mentorálás
+                  Étrend és életmód mentorálás
                 </Link>
               </div>
             </details>
