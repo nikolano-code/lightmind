@@ -1,49 +1,61 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
   const pathname = usePathname();
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/");
 
-  const linkCls = (href: string) =>
-    `transition ${
+  // Desktop linkek stílusa
+  const desktopLinkCls = (href: string) =>
+    `text-sm transition ${
+      isActive(href) ? "text-[#D8B36A]" : "text-white/90 hover:text-[#D8B36A]"
+    }`;
+
+  // Mobil linkek stílusa – MIND block, egymás alatt
+  const mobileLinkCls = (href: string) =>
+    `block text-base transition ${
       isActive(href) ? "text-[#D8B36A]" : "text-white/90 hover:text-[#D8B36A]"
     }`;
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#291C29]/70 backdrop-blur-md">
-      <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="font-semibold tracking-wide text-lg">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+        {/* Logó / márkanév */}
+        <Link
+          href="/"
+          className="text-lg font-semibold tracking-wide text-white"
+          onClick={() => setIsMobileOpen(false)}
+        >
           LightMind
         </Link>
 
-        {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center gap-6 relative">
-          <Link href="/" className={linkCls("/")}>
+        {/* DESKTOP MENÜ */}
+        <nav className="hidden items-center gap-6 md:flex">
+          <Link href="/" className={desktopLinkCls("/")}>
             Főoldal
           </Link>
 
-          <Link href="/about" className={linkCls("/about")}>
+          <Link href="/about" className={desktopLinkCls("/about")}>
             Rólam
           </Link>
 
-          {/* --- DROPDOWN --- */}
+          {/* Szolgáltatások legördülő – desktop */}
           <div
             className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
+            onMouseEnter={() => setIsServicesOpen(true)}
+            onMouseLeave={() => setIsServicesOpen(false)}
           >
             <button
-              className={`transition ${
-                isActive("/services")
+              type="button"
+              className={`text-sm transition ${
+                pathname.startsWith("/services")
                   ? "text-[#D8B36A]"
                   : "text-white/90 hover:text-[#D8B36A]"
               }`}
@@ -51,8 +63,8 @@ export default function Header() {
               Szolgáltatások ▾
             </button>
 
-            {servicesOpen && (
-              <div className="absolute right-0 mt-2 w-72 rounded-2xl border border-white/10 bg-[#241827] shadow-xl py-2 z-50">
+            {isServicesOpen && (
+              <div className="absolute right-0 mt-2 w-72 rounded-2xl border border-white/10 bg-[#241827] py-2 shadow-xl z-50">
                 <Link
                   href="/services"
                   className="block px-4 py-2 text-sm text-white/90 hover:bg-white/5 hover:text-[#D8B36A]"
@@ -93,62 +105,63 @@ export default function Header() {
             )}
           </div>
 
-          {/* Többi menüpont */}
-          <Link href="/kerdoiv" className={linkCls("/kerdoiv")}>
+          <Link href="/kerdoiv" className={desktopLinkCls("/kerdoiv")}>
             Kérdőív
           </Link>
-          <Link href="/contact" className={linkCls("/contact")}>
+
+          <Link href="/contact" className={desktopLinkCls("/contact")}>
             Kapcsolat
           </Link>
 
           <Link
             href="/contact"
-            className="rounded-xl px-4 py-2 bg-[#D8B36A] text-[#291C29] hover:bg-[#B8903F] transition"
+            className="rounded-xl px-4 py-2 bg-[#D8B36A] text-[#291C29] text-sm font-medium hover:bg-[#B8903F] transition"
           >
             Időpontot kérek
           </Link>
-        </div>
+        </nav>
 
-        {/* MOBIL BURGER */}
+        {/* MOBIL HAMBURGER GOMB */}
         <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg border border-white/15"
+          type="button"
+          onClick={() => setIsMobileOpen((v) => !v)}
+          className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 text-white"
+          aria-label="Menü"
+          aria-expanded={isMobileOpen}
         >
           <span className="text-xl">☰</span>
         </button>
       </div>
 
       {/* MOBIL MENÜ */}
-      {open && (
-        <div className="md:hidden border-t border-white/10 bg-[#291C29]/95">
+      {isMobileOpen && (
+        <nav className="md:hidden border-t border-white/10 bg-[#291C29]/95">
           <div className="mx-auto max-w-6xl px-4 py-4 space-y-4">
-
             <Link
               href="/"
-              onClick={() => setOpen(false)}
-              className={linkCls("/")}
+              onClick={() => setIsMobileOpen(false)}
+              className={mobileLinkCls("/")}
             >
               Főoldal
             </Link>
 
             <Link
               href="/about"
-              onClick={() => setOpen(false)}
-              className={linkCls("/about")}
+              onClick={() => setIsMobileOpen(false)}
+              className={mobileLinkCls("/about")}
             >
               Rólam
             </Link>
 
-            {/* Mobil legördülő */}
+            {/* Szolgáltatások – mobil legördülő */}
             <details className="group">
-              <summary className="text-white/90 cursor-pointer">
+              <summary className="cursor-pointer text-white/90">
                 Szolgáltatások
               </summary>
-              <div className="mt-2 ml-4 space-y-2 text-white/70">
-
+              <div className="mt-2 ml-4 space-y-2 text-white/80">
                 <Link
                   href="/services"
-                  onClick={() => setOpen(false)}
+                  onClick={() => setIsMobileOpen(false)}
                   className="block hover:text-[#D8B36A]"
                 >
                   Összes szolgáltatás
@@ -156,7 +169,7 @@ export default function Header() {
 
                 <Link
                   href="/services/energetikai-harmonizacio"
-                  onClick={() => setOpen(false)}
+                  onClick={() => setIsMobileOpen(false)}
                   className="block hover:text-[#D8B36A]"
                 >
                   Energetikai harmonizáció
@@ -164,7 +177,7 @@ export default function Header() {
 
                 <Link
                   href="/services/gyogynoveny-tanacsadas"
-                  onClick={() => setOpen(false)}
+                  onClick={() => setIsMobileOpen(false)}
                   className="block hover:text-[#D8B36A]"
                 >
                   Gyógynövény & kiegészítők
@@ -172,7 +185,7 @@ export default function Header() {
 
                 <Link
                   href="/services/mindfulness-hangolas"
-                  onClick={() => setOpen(false)}
+                  onClick={() => setIsMobileOpen(false)}
                   className="block hover:text-[#D8B36A]"
                 >
                   Mindfulness hangolás
@@ -180,7 +193,7 @@ export default function Header() {
 
                 <Link
                   href="/services/eletmod-mentoralas"
-                  onClick={() => setOpen(false)}
+                  onClick={() => setIsMobileOpen(false)}
                   className="block hover:text-[#D8B36A]"
                 >
                   Étrend & életmód mentorálás
@@ -190,30 +203,29 @@ export default function Header() {
 
             <Link
               href="/kerdoiv"
-              onClick={() => setOpen(false)}
-              className={linkCls("/kerdoiv")}
+              onClick={() => setIsMobileOpen(false)}
+              className={mobileLinkCls("/kerdoiv")}
             >
               Kérdőív
             </Link>
 
             <Link
               href="/contact"
-              onClick={() => setOpen(false)}
-              className={linkCls("/contact")}
+              onClick={() => setIsMobileOpen(false)}
+              className={mobileLinkCls("/contact")}
             >
               Kapcsolat
             </Link>
 
             <Link
               href="/contact"
-              onClick={() => setOpen(false)}
+              onClick={() => setIsMobileOpen(false)}
               className="block rounded-xl px-4 py-2 bg-[#D8B36A] text-[#291C29] font-medium hover:bg-[#B8903F] transition"
             >
               Időpontot kérek
             </Link>
-
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );
