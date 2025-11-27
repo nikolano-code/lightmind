@@ -7,7 +7,16 @@ import { usePathname } from "next/navigation";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const pathname = usePathname();
+  const pathname = usePathname() || "/";
+
+  // Egyszerű ellenőrzés: szlovák útvonalon vagyunk-e (/sk...)
+  const isSk = pathname.startsWith("/sk");
+
+  // Nyelvváltó gomb cél URL-je:
+  // ha SK-n vagyunk -> vissza HU ("/")
+  // ha HU-n vagyunk -> SK főoldal ("/sk")
+  const langToggleHref = isSk ? "/" : "/sk";
+  const langLabel = isSk ? "HU" : "SK";
 
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/");
@@ -97,6 +106,14 @@ export default function Header() {
           <Link href="/kerdoiv" className={linkCls("/kerdoiv")}>Kérdőív</Link>
           <Link href="/contact" className={linkCls("/contact")}>Kapcsolat</Link>
 
+          {/* NYELVVÁLTÓ GOMB – HU / SK */}
+          <Link
+            href={langToggleHref}
+            className="text-xs uppercase tracking-[0.15em] px-3 py-1 rounded-full border border-white/25 text-white/80 hover:text-[#D8B36A] hover:border-[#D8B36A] transition"
+          >
+            {langLabel}
+          </Link>
+
           <Link
             href="/contact"
             className="rounded-xl px-4 py-2 bg-[#D8B36A] text-[#291C29] hover:bg-[#B8903F] transition"
@@ -181,6 +198,15 @@ export default function Header() {
 
             <Link href="/contact" onClick={() => setOpen(false)} className={linkCls("/contact")}>
               Kapcsolat
+            </Link>
+
+            {/* NYELVVÁLTÓ MOBILON */}
+            <Link
+              href={langToggleHref}
+              onClick={() => setOpen(false)}
+              className="inline-block text-xs uppercase tracking-[0.15em] px-3 py-1 rounded-full border border-white/25 text-white/80 hover:text-[#D8B36A] hover:border-[#D8B36A] transition"
+            >
+              {langLabel}
             </Link>
 
             <Link
